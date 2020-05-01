@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { fetchAllUsers } from '../State/AdminEffects';
 
-import { UserCard } from '../../../Components/Card/Card';
+import { UserCard } from './Card';
 
 const AdminPage = ({ dispatch, usersList }) => {
   useEffect(() => {

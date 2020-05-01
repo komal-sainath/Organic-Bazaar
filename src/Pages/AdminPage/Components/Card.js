@@ -6,7 +6,7 @@ import { blueGrey } from '@material-ui/core/colors';
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 275,
+    minWidth: 270,
     width: 'fit-content',
     display: 'inline-block',
     margin: "1rem",
