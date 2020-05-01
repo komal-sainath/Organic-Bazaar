@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Card, CardContent, makeStyles, Typography, CardActions, IconButton } from "@material-ui/core";
 import { Edit, Delete } from "@material-ui/icons";
 import { blueGrey } from '@material-ui/core/colors';
+import {EditUserDialog } from './EditUserDialog';
 
 
 const useStyles = makeStyles({
@@ -21,10 +23,24 @@ const useStyles = makeStyles({
   },
 });
 
-
+EditUserDialog.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired,
+  selectedValue: PropTypes.string.isRequired,
+};
 
 export const UserCard = ({ user }) => {
   const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+  
   return (
     <Card className={classes.root}>
       <CardContent>
@@ -37,7 +53,8 @@ export const UserCard = ({ user }) => {
       </CardContent>
       <CardActions>
       <IconButton aria-label="Edit User">
-          <Edit fontSize="small" />
+          <Edit fontSize="small" onClick={handleClickOpen}/>
+          <EditUserDialog open={open} onClose={handleClose} />
       </IconButton>
         <IconButton aria-label="Delete User">
             <Delete />

@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchAllUsers } from '../State/AdminEffects';
+import { fetchAllUsers } from './State/AdminEffects';
 
-import { UserCard } from './Card';
+import { UserCard } from './Components/Card';
 
 const AdminPage = ({ dispatch, usersList }) => {
   useEffect(() => {
@@ -11,7 +11,6 @@ const AdminPage = ({ dispatch, usersList }) => {
   }, [dispatch]);
 
   const renderUsers = () => {
-
     return usersList.map(user => <UserCard key={user.id} user={user} />);
   };
 

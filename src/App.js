@@ -6,7 +6,7 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-import PostsPage from './Pages/AdminPage/Components/AdminPage';
+import AdminPage from './Pages/AdminPage/AdminPage';
 import {NavigationBar} from './Components/AppBar/AppBar';
 
 const App = () => {
@@ -14,7 +14,7 @@ const App = () => {
     <Router>
     <NavigationBar/>
       <Switch>
-        <Route exact path="/" component={PostsPage} />
+        <Route exact path="/" component={AdminPage} />
         <Redirect to="/" />
       </Switch>
     </Router>
