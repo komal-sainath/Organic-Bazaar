@@ -1,33 +1,44 @@
+import {Dialog,  DialogContent, DialogActions, Button , TextField, DialogTitle } from '@material-ui/core';
 import React from 'react';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Dialog from '@material-ui/core/Dialog';
-
-import { DialogContent, DialogActions, Button , TextField } from '@material-ui/core';
+import { connect } from 'react-redux';
 
 
-export const EditUserDialog = (props) => {
-  const { onClose, open } = props;
+const EditUserDialog = (props) => {   
+  const { onClose, open, user } = props;
 
   const handleClose = () => {
     onClose();
   };
-
-
+  
   return (
     <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open} fullWidth>
-      <DialogTitle id="simple-dialog-title">Edit User</DialogTitle>
+      <DialogTitle id="simple-dialog-title">
+        Edit title
+      </DialogTitle>
       <DialogContent>
         <TextField
-          autoFocus
-          margin="dense"
-          id="name"
-          label="Email Address"
-          type="email"
-          fullWidth
+        autoFocus
+        InputLabelProps={{ shrink: true }}
+        margin="dense"
+        id="filled-disabled"
+        label="Name"
+        type="text"
+        helperText={user.name}
+        fullWidth
+        />
+        <TextField
+        InputLabelProps={{ shrink: true }}
+        autoFocus
+        margin="dense"
+        id="filled-disabled"
+        label="Age"
+        type="number"
+        helperText={user.age}
+        fullWidth
         />
       </DialogContent>
       <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button variant="outlined" onClick={handleClose} color="primary">
             Save
           </Button>
         </DialogActions>
@@ -35,3 +46,9 @@ export const EditUserDialog = (props) => {
   );
 };
 
+const mapStateToProps = state => ({
+  user: state.adminPage.user,
+});
+
+
+export default connect(mapStateToProps)(EditUserDialog);

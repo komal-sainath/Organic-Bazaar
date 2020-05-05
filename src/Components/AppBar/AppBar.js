@@ -148,7 +148,7 @@ export const NavigationBar = () => {
             <MenuIcon />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            Organic Bazaar
+            Project Name
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
