@@ -1,5 +1,5 @@
 import {Dialog,  DialogContent, DialogActions, Button , TextField, DialogTitle } from '@material-ui/core';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 
@@ -10,10 +10,13 @@ const EditUserDialog = (props) => {
     onClose();
   };
   
+  const [userState , setUserState] = useState(user);
+   useEffect(() => { setUserState(user); }, [user]);
+  
   return (
     <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open} fullWidth>
       <DialogTitle id="simple-dialog-title">
-        Edit title
+        Edit User
       </DialogTitle>
       <DialogContent>
         <TextField
@@ -23,7 +26,8 @@ const EditUserDialog = (props) => {
         id="filled-disabled"
         label="Name"
         type="text"
-        helperText={user.name}
+        value={userState.name}
+        onChange={event => setUserState(event.target.value)}
         fullWidth
         />
         <TextField
@@ -32,8 +36,9 @@ const EditUserDialog = (props) => {
         margin="dense"
         id="filled-disabled"
         label="Age"
-        type="number"
-        helperText={user.age}
+        type="text"
+        value={userState.age}
+        onChange={event => setUserState(event.target.value)}
         fullWidth
         />
       </DialogContent>

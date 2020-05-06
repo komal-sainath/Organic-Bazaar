@@ -17,3 +17,11 @@ export const getUserSuccess = (user) => ({
   type: actionTypes.GET_USER_SUCCESS,
   payload: user,
 });
+
+export const addUser = () => ({ type: actionTypes.ADD_USER});
+
+export const deleteUser = id => ({
+  type: actionTypes.DELETE_USER,
+  payload: id,
+});
+

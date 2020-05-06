@@ -33,9 +33,8 @@ EditUserDialog.propTypes = {
 export const UserCard = ({ user }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
+
   const [open, setOpen] = React.useState(false);
-
-
   const handleClickOpen = () => {
     setOpen(true);
     dispatch(actions.setCurrentUserId(user.userID));
