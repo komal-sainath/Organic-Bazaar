@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from './State/AdminActions';
 
 import { UserCard } from './Components/UserCard';
+import {NavigationBar} from '../../CommonComponents/AppBar/AppBar';
 
 const AdminPage = ({ dispatch, usersList }) => {
     useEffect(() => {
@@ -16,6 +17,7 @@ const AdminPage = ({ dispatch, usersList }) => {
 
   return (
     <section>
+    <NavigationBar/>
       {renderUsers()}
     </section>
   );
