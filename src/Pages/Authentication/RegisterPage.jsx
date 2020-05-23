@@ -125,12 +125,11 @@ export default function RegisterPage() {
             color="primary"
             className={classes.submit}
             disabled={!(user.username && user.userType && user.email && user.password)}
+            onClick={() => <Link href="/"/>}
           >
-            <Link href="/login">
               <Typography className={classes.buttonText} variant="button">
                 Sign up
               </Typography>
-            </Link>
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
