@@ -23,6 +23,10 @@
     "redux-saga": "^1.1.3",
     "reselect": "^4.0.0"
   },
+  "engines": {
+    "npm": "6.13.4",
+    "node": "12.16.1"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
