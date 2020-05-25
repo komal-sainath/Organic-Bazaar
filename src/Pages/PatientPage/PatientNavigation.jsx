@@ -61,8 +61,8 @@ export const PatientNavigationBar = () => {
           <List>
               <ListItem button><ListItemText primary="My Appointments"/></ListItem>
               <ListItem button><ListItemText primary="Appointment History"/></ListItem>
-              <ListItem button><ListItemText primary="My Doctors"/></ListItem>
-              <ListItem button><ListItemText primary="Report Gallery"/></ListItem>
+              <ListItem button><ListItemText primary="Available Doctors"/></ListItem>
+              <ListItem button><ListItemText primary="Transaction History"/></ListItem>
             </List>
             <Divider />
             <List>

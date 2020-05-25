@@ -1,7 +1,8 @@
 import { useDispatch } from 'react-redux';
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import { CssBaseline, Avatar, Button, TextField, Link, Grid, Container, Typography, makeStyles, InputLabel, Select, MenuItem } from '@material-ui/core';
+import { CssBaseline, Avatar, Button, TextField, Grid, Link, Container, Typography, makeStyles, InputLabel, Select, MenuItem } from '@material-ui/core';
 
 import * as actions from './States/AuthActions';
 
@@ -34,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function RegisterPage() {
+  const history = useHistory();
   const classes = useStyles();
   const dispatch = useDispatch();
   const userTypeList = ["DOCTOR", "PATIENT"];
@@ -53,6 +55,9 @@ export default function RegisterPage() {
     e.preventDefault();
     dispatch(actions.RegisterUser(user));
   };
+
+
+  const navigateToLoginPage = () => history.push('/');
 
   return (
     <Container component="main" maxWidth="xs">
@@ -125,15 +130,15 @@ export default function RegisterPage() {
             color="primary"
             className={classes.submit}
             disabled={!(user.username && user.userType && user.email && user.password)}
-            onClick={() => <Link href="/"/>}
+            onClick={navigateToLoginPage}
           >
               <Typography className={classes.buttonText} variant="button">
-                Sign up
+                Sign Up
               </Typography>
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="/login" variant="body2">
+              <Link href="/" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>
